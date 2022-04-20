@@ -6,10 +6,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 COPY app.py /
 COPY requirements.txt /tmp
 
-RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/' /etc/apt/sources.list
 RUN apt-get update \
     && apt-get install -y python3 python3-pip libgomp1 libglib2.0-0 libsm6 libxrender1 libxext6 \
-    && pip install -r /tmp/requirements.txt -i https://pypi.doubanio.com/simple
+    && pip install -r /tmp/requirements.txt
 RUN apt-get -y remove python3-pip \
     && apt-get -y autoremove \
     && apt-get -y install --no-install-recommends python3-setuptools \
