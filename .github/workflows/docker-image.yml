@@ -29,8 +29,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        build-args:
-          - PADDLE_VER=${{ env.APP_VERSION }}
+        build-args: PADDLE_VER=${{ env.APP_VERSION }}
         file: ./Dockerfile-noavx # Dockerfile 位置
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/paddleocr:latest-noavx,${{ secrets.DOCKERHUB_USERNAME }}/paddleocr:${{ env.APP_VERSION }}-noavx
