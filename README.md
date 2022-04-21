@@ -33,16 +33,23 @@ Parameters:
 
 ### ocr 样例
 - 上传文件识别
+- 
   ` curl 127.0.0.1:5000/ocr -F img=@/tmp/img.png`
+  
   返回结果
-  > PHO CAPITAL
-  > 107 state street
-  > ...
+  
+  ```text
+  PHO CAPITAL
+  107 state street
+  ...
+  ```
 
 - 从图片url识别, 并输出 json 格式
+- 
   `curl 127.0.0.1:5000/ocr -F imgurl=https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/release/2.4/doc/imgs_en/254.jpg -F outtype=json`
 
   json 格式
+  
   ```json
   {
     "success": true,
